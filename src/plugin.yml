@@ -1,0 +1,8 @@
+name: TModsServerAddons_Broadcaster
+main: me.tmods.serveraddons.Broadcaster
+version: 1.51
+author: Timo Hocker
+website: http://timosmods.weebly.com
+
+depends:
+ - TModsServerUtils
