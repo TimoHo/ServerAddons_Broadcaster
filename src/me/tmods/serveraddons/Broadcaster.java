@@ -33,7 +33,7 @@ public class Broadcaster extends JavaPlugin implements Listener{
 	public void onBlockBreak(BlockBreakEvent event) {
 		try {
 		if (broadcastBlock && maincfg.getBoolean("broadcastBlockBreak." + event.getBlock().getType().toString())) {
-			Bukkit.broadcastMessage(ChatColor.GOLD + event.getPlayer().getName() + " " + Methods.getLang("hf1") + " " + event.getBlock().getType().toString() + " " +  Methods.getLang("hf2"));
+			Bukkit.broadcastMessage(ChatColor.GOLD + event.getPlayer().getName() + " has found " + event.getBlock().getType().toString() + ".");
 			broadcastBlock = false;
 			Bukkit.getScheduler().scheduleSyncDelayedTask(this, new Runnable() {
 				@Override
@@ -51,10 +51,10 @@ public class Broadcaster extends JavaPlugin implements Listener{
 		try {
 		if (broadcastEntity && maincfg.getBoolean("broadcastEntityDamage." + event.getEntity().getType().name())) {
 			if (event.getDamager() instanceof Arrow && ((Arrow)event.getDamager()).getShooter() instanceof Player) {
-				Bukkit.broadcastMessage(((Player)((Arrow)event.getDamager()).getShooter()).getName() + " " + Methods.getLang("ha1") + " " + event.getEntity().getType().name() + " " + Methods.getLang("ha2"));
+				Bukkit.broadcastMessage(((Player)((Arrow)event.getDamager()).getShooter()).getName() + " has attacked " + event.getEntity().getType().name() + ".");
 			} else {
 				if (event.getDamager() instanceof Player) {
-					Bukkit.broadcastMessage(event.getDamager().getName() + " " + Methods.getLang("ha1") + " " + event.getEntity().getType().name() + " " + Methods.getLang("ha2"));
+					Bukkit.broadcastMessage(event.getDamager().getName() + " has attacked " + event.getEntity().getType().name() + ".");
 				}
 			}
 			broadcastEntity = false;
